@@ -272,7 +272,7 @@ echo -e  "\033[0;33mПоищем в IPA:\033[m"
 while IFS= read -r line 
 	do
 	get_users
-	echo "ipa user-find $last | grep login"
+	echo "ipa user-find $last "
 	echo "ipa user-show  $username  --all | grep --color=auto -e 'Учётная запись отключена:' -e 'Account disabled:' -e 'Номер пейджера' -e 'Pager Number' -e 'Email address:' -e 'User login:' -e 'Full name:'"
 	done < list.txt
 
@@ -489,8 +489,8 @@ function add_one_user {
     echo -e "$username\n $first\n $last\n $email\n $phone\n $GTOPS\n"
     
     echo -e  "\033[0;33mПоищем в IPA:\033[m"
-    echo "ipa user-find $last | grep login"
-    echo "ipa user-find $username | grep login"
+    echo "ipa user-find $last "
+    echo "ipa user-find $username "
 
     read -p "Выбери Регион(PD20,PD21,PD40,PD43,PD46(можно через ,)): " PDreg_input
     # Преобразуем строку в массив
