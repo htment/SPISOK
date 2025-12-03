@@ -1,0 +1,18 @@
+
+./bw --version
+./bw config server https://bitwarden.common.gos-tech.xyz
+./bw config server https://bitwarden.roma32rik.ru
+./bw login fedkin.r.v@sbertech.ru           (далее скопировать предложеный експорт)
+./bw login khokhlenkov.a.v@sbertech.ru
+Utellmepass123
+
+
+
+./bw list organizations -узнать id организации  eb7400fe-22db-460f-8d1d-3a6d1ce11b48
+
+
+
+по дефолту добавлена gtops-доступы
+
+
+PS путь к файлу указывается абсолютный. копируется не сам файл а его содержимое
