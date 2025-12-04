@@ -52,6 +52,7 @@ read -p "Введите НАЗВАНИЕ элемента(Пользовател
     if [ -z "$ITEM_NAME" ]; then
         ITEM_NAME="Пользователи и пароли"
     fi
+pwd
 read -p "Введите ПУТЬ к файлу с заметкой: " NOTES_FILE
     if [ -z "$NOTES_FILE" ]; then
         NOTES_FILE=$FILE_GTOPS_txt
@@ -137,6 +138,7 @@ fi
 echo "Элемент создан с ID: $ITEM_ID"
 
 # --- добавляем вложение ---
+
 read -p "Введите ПУТЬ к файлу для вложения (или Enter чтобы пропустить): " ATTACH_FILE
 
 if [ -z "$ATTACH_FILE" ]; then

@@ -9,6 +9,44 @@ LiST_FILE=list.txt
 
 
 
+
+function create_read_script {
+    echo "Создаю скрипт execute_ipa_user_mod.sh"
+    cat > execute_ipa_user_mod.sh << 'EOF'
+        #!/bin/bash
+
+        [ $# -ne 1 ] && { echo "Использование: $0 <файл_с_командами>"; exit 1; }
+        [ ! -f "$1" ] && { echo "Файл '$1' не найден"; exit 1; }
+
+        success=0
+        fail=0
+
+        while IFS= read -r cmd; do
+            [ -z "$cmd" ] && continue
+
+            echo "Выполняем: $cmd"
+            if eval "$cmd"; then
+                echo "✓ УСПЕХ"
+                ((success++))
+            else
+                echo "✗ НЕУСПЕХ"
+                ((fail++))
+            fi
+            echo "---"
+        done < "$1"
+
+        echo "Итого: успешно $success, неуспешно $fail"
+        exit $((fail > 0))
+EOF
+}
+
+
+
+
+
+
+
+
 function add_bitwarden {
 				    # Экспортируем GTOPS для использования в дочернем скрипте
 					if [ -n "$GTOPS" ]; then
@@ -104,6 +142,7 @@ get_logins_forchange_pass (){
     FILE_GTOPS_txt="./GTOPS/$GTOPS.txt"
     FILE_GTOPS_csv="./GTOPS/$GTOPS.csv"
     cat $FILE_GTOPS_txt
+    create_read_script
     echo "-------------------------------------------------------"
 
 	echo "------------------------------------------"

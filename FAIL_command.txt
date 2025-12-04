@@ -1,0 +1,9 @@
+Список сфейлиных команд
+ipa user-mod kukuev --add pager=FFR-11 --FAIL
+echo BpFruKo+hX5QIx16RJkh | ipa user-mod mamaev --password --FAIL
+ipa user-mod mamaev --password-expiration 20260203023433Z --FAIL
+ipa user-mod mamaev --add pager=FFR-11 --FAIL
+echo sCarLqv%G_K%0mu%eKmL | ipa user-mod zhizdra --password --FAIL
+ipa user-mod zhizdra --password-expiration 20260203023433Z --FAIL
+ipa user-mod zhizdra --add pager=FFR-11 --FAIL
+ipa user-mod art --add pager=FFR-11 --FAIL
