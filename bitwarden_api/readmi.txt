@@ -4,7 +4,7 @@
 ./bw config server https://bitwarden.roma32rik.ru
 ./bw login fedkin.r.v@sbertech.ru           (далее скопировать предложеный експорт)
 ./bw login khokhlenkov.a.v@sbertech.ru
-Utellmepass123
+
 
 
 
