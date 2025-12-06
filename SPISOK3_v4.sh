@@ -44,10 +44,6 @@ EOF
 
 
 
-
-
-
-
 function add_bitwarden {
 				    # Экспортируем GTOPS для использования в дочернем скрипте
 					if [ -n "$GTOPS" ]; then
@@ -95,7 +91,10 @@ function reset_pass {
 	#Вывод сгенерированного пароля
 	#echo "$chars"
 	new_date=$(date -d "+60 days" +%Y%m%d%H%M%SZ)
-	echo "$new_date"
+	#echo "$new_date"
+    if [[ -n "$PD" ]]; then
+        echo "$PD"
+	fi
  	echo "echo $chars | ipa user-mod $username --password"
  	echo "echo $chars | ipa user-mod $username --password" >>FREEIPA_commands.txt
 	echo "ipa user-mod $username --password-expiration $new_date"
@@ -104,7 +103,13 @@ function reset_pass {
 	echo "ipa user-mod $username --add pager=$GTOPS">>FREEIPA_commands.txt
 	#запишем в файл
 	mkdir -p "./GTOPS"
+    if [[ -n "$PD" ]]; then
+        echo "$PD" >>"./GTOPS/$GTOPS.txt"
+	fi
 	echo "$last $first $email $phone " >>"./GTOPS/$GTOPS.txt"
+    if [[ -n "$PD" ]]; then
+        echo "$PD" >>"./GTOPS/$GTOPS.csv"
+	fi
 	echo "$last;$first;$email;$phone;$username;$chars" >>"./GTOPS/$GTOPS.csv"
 	echo "$username / $chars" >>"./GTOPS/$GTOPS.txt"
 	echo "-----" >> "./GTOPS/$GTOPS.txt"
@@ -130,15 +135,20 @@ get_logins_forchange_pass (){
     echo "$GTOPS" > "./GTOPS/$GTOPS.txt"
     echo "Пользователи (пароли и логины)" >> "./GTOPS/$GTOPS.txt"
     echo "last;first;email;phone;username;pass" > "./GTOPS/$GTOPS.csv"
-    while IFS= read -r line
-	do
-	 username=$line
-	 echo "user: $username"
-	 reset_pass
+    read -p "Выбери Регион(PD20,PD21,PD40,PD43,PD46(можно через ,)): " PDreg_input
+    # Преобразуем строку в массив
+    IFS=',' read -ra PDreg <<< "$PDreg_input"
+    for PD in "${PDreg[@]}"; do
+    echo -e  "\033[0;35mСбросим в IPA $PD:\033[m"
+        while IFS= read -r line
+        do
+        username=$line
+        echo "user: $username"
+        reset_pass
 
-	 done < $LOGINS_FILE
-	#cat ./GTOPS/$GTOPS.txt
-
+        done < $LOGINS_FILE
+        #cat ./GTOPS/$GTOPS.txt
+    done
     echo "-------------------------------------------------------"
     FILE_GTOPS_txt="./GTOPS/$GTOPS.txt"
     FILE_GTOPS_csv="./GTOPS/$GTOPS.csv"
