@@ -20,7 +20,7 @@ function create_read_script {
 
         success=0
         fail=0
-
+	echo "Список сфейлиных команд" > FAIL_command.txt
         while IFS= read -r cmd; do
             [ -z "$cmd" ] && continue
 
@@ -29,6 +29,7 @@ function create_read_script {
                 echo "✓ УСПЕХ"
                 ((success++))
             else
+		echo "$cmd --FAIL" >> FAIL_command.txt
                 echo "✗ НЕУСПЕХ"
                 ((fail++))
             fi

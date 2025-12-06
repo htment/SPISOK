@@ -1,13 +1,13 @@
 
-echo 8t%%/nbFwP81pJ?KrhAD | ipa user-mod kukuev --password
-ipa user-mod kukuev --password-expiration 20260203023433Z
-ipa user-mod kukuev --add pager=FFR-11
-echo BpFruKo+hX5QIx16RJkh | ipa user-mod mamaev --password
-ipa user-mod mamaev --password-expiration 20260203023433Z
-ipa user-mod mamaev --add pager=FFR-11
-echo sCarLqv%G_K%0mu%eKmL | ipa user-mod zhizdra --password
-ipa user-mod zhizdra --password-expiration 20260203023433Z
-ipa user-mod zhizdra --add pager=FFR-11
-echo Kwze^RbgODtZqmpcsrkC | ipa user-mod art --password
-ipa user-mod art --password-expiration 20260203023433Z
-ipa user-mod art --add pager=FFR-11
+echo oZd%NObnWIh6Rt%GB?_e | ipa user-mod kukuev --password
+ipa user-mod kukuev --password-expiration 20260204104129Z
+ipa user-mod kukuev --add pager=GTOPS-555
+echo iB+w6tjWyxXmuJgbvond | ipa user-mod mamaev --password
+ipa user-mod mamaev --password-expiration 20260204104129Z
+ipa user-mod mamaev --add pager=GTOPS-555
+echo dkp6D.?1_5a^sOmc_k8e | ipa user-mod zhizdra --password
+ipa user-mod zhizdra --password-expiration 20260204104129Z
+ipa user-mod zhizdra --add pager=GTOPS-555
+echo 1S010XhsvXFSeEfII9bs | ipa user-mod art --password
+ipa user-mod art --password-expiration 20260204104129Z
+ipa user-mod art --add pager=GTOPS-555
